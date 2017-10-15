@@ -1,5 +1,7 @@
 ## Steps Directive [wsSteps]
 
+Demo: [https://wpdas.github.io/ws-steps/](https://wpdas.github.io/ws-steps/)
+
 ### Install using bower:
 ```
 bower install ws-steps --save
