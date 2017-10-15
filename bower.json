@@ -1,0 +1,37 @@
+{
+  "name": "ws-steps",
+  "description": "Steps directive for AngularJS.",
+  "main": [
+    "src/steps.css",
+    "src/steps.directive.js"
+  ],
+  "authors": [
+    "Wenderson Pires da Silva <wpdas@yahoo.com.br>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "steps",
+    "directive",
+    "angularjs",
+    "component",
+    "step",
+    "wssteps"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^1.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wpdas/ws-steps.git"
+  }
+}
