@@ -130,9 +130,3 @@
 .ws-steps-content-hidden {
   display: none;
 }
-
-/*:root {
-  --ws-steps-enabled-color: #1976D2;
-  --ws-steps-disabled-color: rgba(0,0,0,.38);
-  --ws-steps-enabled-icon-color: rgba(25, 118, 210, 0.70);
-}*/

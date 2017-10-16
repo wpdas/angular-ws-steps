@@ -265,7 +265,6 @@
         stepsNavigationElement.scope().vm.setElement(stepsNavigationElement);
       },
       bindToController: true,
-      //templateUrl: './src/steps.html'
       template: '<div class="ws-steps">'+
                 '<nav class="ws-steps-transclude" ng-transclude>'+
                 '</nav>'+
@@ -327,7 +326,6 @@
     }
 
     function getTotalSteps() {
-      //var totalSteps = stepsNavigation.children.length;
       var totalSteps = document.querySelector('#' + $attrs.id + ' .ws-steps nav').children.length;
       if(totalSteps === 0) {
         totalSteps = 1
@@ -446,7 +444,6 @@
   function Step() {
     return {
       restrict: 'E',
-      //templateUrl: './src/step.html',
       scope: {
         icon: '@',
         title: '@'
