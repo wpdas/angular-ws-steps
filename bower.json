@@ -1,5 +1,5 @@
 {
-  "name": "ws-steps",
+  "name": "angular-ws-steps",
   "description": "Steps directive for AngularJS.",
   "main": [
     "src/steps.css",

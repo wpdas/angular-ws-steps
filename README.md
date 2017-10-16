@@ -1,18 +1,18 @@
 ## Steps Directive [wsSteps]
 
-Demo: [https://wpdas.github.io/ws-steps/](https://wpdas.github.io/ws-steps/)
+Demo: [https://wpdas.github.io/angular-ws-steps/](https://wpdas.github.io/angular-ws-steps/)
 
 ### Install using bower:
 ```
-bower install ws-steps --save
+bower install angular-ws-steps --save
 ```
 
 ### How to use:
 
 The following files must be used:
 ``` html
-<link rel="stylesheet" href="bower_components/ws-steps/src/steps.css">
-<script src="bower_components/ws-steps/src/steps.directive.js"></script>
+<link rel="stylesheet" href="bower_components/angular-ws-steps/src/steps.css">
+<script src="bower_components/angular-ws-steps/src/steps.directive.js"></script>
 ```
 
 The component can be used in the same document as many times as long as the id of the steps is different. Otherwise a warning will be issued on the console.

@@ -1,6 +1,6 @@
 {
-  "name": "wsSteps",
-  "version": "1.0.1",
+  "name": "angular-ws-steps",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
