@@ -15,7 +15,8 @@
     "angularjs",
     "component",
     "step",
-    "wssteps"
+    "wssteps",
+    "angular"
   ],
   "homepage": "",
   "ignore": [
