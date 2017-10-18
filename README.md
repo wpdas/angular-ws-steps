@@ -2,17 +2,30 @@
 
 Demo: [https://wpdas.github.io/angular-ws-steps/](https://wpdas.github.io/angular-ws-steps/)
 
-### Install using bower:
+### Install:
+ - Bower
 ```
 bower install angular-ws-steps --save
+```
+
+- NPM
+```
+npm install angular-ws-steps --save
 ```
 
 ### How to use:
 
 The following files must be used:
+
+- Bower:
 ``` html
 <link rel="stylesheet" href="bower_components/angular-ws-steps/src/steps.css">
 <script src="bower_components/angular-ws-steps/src/steps.directive.js"></script>
+```
+- NPM:
+``` html
+<link rel="stylesheet" href="node_modules/angular-ws-steps/src/steps.css">
+<script src="node_modules/angular-ws-steps/src/steps.directive.js"></script>
 ```
 
 The component can be used in the same document as many times as long as the id of the steps is different. Otherwise a warning will be issued on the console.
@@ -148,3 +161,5 @@ angular.module('app', ['wsSteps'])
 <script src="/bower_components/angular-animate/angular-animate.js"></script>
 <script src="/bower_components/angular-material/angular-material.js"></script>
 ```
+
+License MIT.

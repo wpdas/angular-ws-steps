@@ -43,22 +43,22 @@
         <step icon="dashboard" ref="experiencia3"></step>
       </steps>
       <step-content id="mecanica">
-        <p style="width:100%; text-align:center;">* Mechanics content.</p>
+        <p style="width:100%; text-align:center;">* Content 1.</p>
       </step-content>
       <step-content id="regras">
-        <p style="width:100%; text-align:center;">* Business Rules content.</p>
+        <p style="width:100%; text-align:center;">* Content 2.</p>
       </step-content>
       <step-content id="escolha">
-        <p style="width:100%; text-align:center;">* Choice content.</p>
+        <p style="width:100%; text-align:center;">* Content 3.</p>
       </step-content>
       <step-content id="experiencia1">
-        <p style="width:100%; text-align:center;">* Experience content.</p>
+        <p style="width:100%; text-align:center;">* Content 4.</p>
       </step-content>
       <step-content id="experiencia2">
-        <p style="width:100%; text-align:center;">* Experience 2 content.</p>
+        <p style="width:100%; text-align:center;">* Content 5.</p>
       </step-content>
       <step-content id="experiencia3">
-        <p style="width:100%; text-align:center;">* Experience 3 content.</p>
+        <p style="width:100%; text-align:center;">* Content 6.</p>
       </step-content>
 
       <h3>Example 2 - Controlling the component through StepAPI</h3>
@@ -68,12 +68,12 @@
           returned. Open the Console to view the errors.
       </p>
       <steps step="2" enabled-step="4" id="myNavigation2">
-        <step icon="build" title="Mechanics"></step>
-        <step icon="description" title="Business Rules"></step>
-        <step icon="compare_arrows" title="Choice"></step>
-        <step icon="dashboard" title="Experience"></step>
-        <step icon="dashboard" title="Experience 2"></step>
-        <step icon="dashboard" title="Experience 3"></step>
+        <step icon="build" title="Content 1"></step>
+        <step icon="description" title="Content 2"></step>
+        <step icon="compare_arrows" title="Content 3"></step>
+        <step icon="dashboard" title="Content 4"></step>
+        <step icon="dashboard" title="Content 5"></step>
+        <step icon="dashboard" title="Content 6"></step>
       </steps>
 
       <h3>Example 3 - Settings steps colors</h3>
@@ -82,21 +82,21 @@
           Caution, in this mode, you only can use HEX colors type. If you want to use rgb, rgba or similar, use StepAPI.init() instance.
       </p>
       <steps step="2" enabled-step="4" id="myNavigation3" colors="#ff0000, #765fff, #0000ff">
-        <step icon="build" title="Mechanics"></step>
-        <step icon="description" title="Business Rules"></step>
-        <step icon="compare_arrows" title="Choice"></step>
-        <step icon="dashboard" title="Experience"></step>
-        <step icon="dashboard" title="Experience 2"></step>
-        <step icon="dashboard" title="Experience 3"></step>
+        <step icon="build" title="Content 1"></step>
+        <step icon="description" title="Content 2"></step>
+        <step icon="compare_arrows" title="Content 3"></step>
+        <step icon="dashboard" title="Content 4"></step>
+        <step icon="dashboard" title="Content 5"></step>
+        <step icon="dashboard" title="Content 6"></step>
       </steps>
   
       <h4>Example 4 - Changing the step using the Application Controller</h4>
       <p>You can change the value of the step parameter using the Application Controller.</p>
       <steps step="{{vm.currentStep}}" enabled-step="4" id="myNavigation4">
-        <step icon="build" title="Mecânica"></step>
-        <step icon="description" title="Regras de Negócio"></step>
-        <step icon="check_circle" title="Escolha"></step>
-        <step icon="dashboard" title="Experiência"></step>
+        <step icon="build" title="Content 1"></step>
+        <step icon="description" title="Content 2"></step>
+        <step icon="check_circle" title="Content 3"></step>
+        <step icon="dashboard" title="Content 4"></step>
       </steps>
   
       <h4>Example 5 - Changing the enabled-step using the Application Controller</h4>
@@ -106,10 +106,10 @@
           the selected step is greater, the component controller selects the first step automatically.
       </p>
       <steps step="1" enabled-step="{{vm.currentStep}}" id="myNavigation5">
-        <step icon="build" title="Mecânica"></step>
-        <step icon="description" title="Regras de Negócio"></step>
-        <step icon="check_circle" title="Escolha"></step>
-        <step icon="dashboard" title="Experiência"></step>
+        <step icon="build" title="Content 1"></step>
+        <step icon="description" title="Content 2"></step>
+        <step icon="check_circle" title="Content 3"></step>
+        <step icon="dashboard" title="Content 4"></step>
       </steps>
     </md-content>
   </body>
