@@ -2,6 +2,11 @@
 
 Demo: [https://wpdas.github.io/angular-ws-steps/](https://wpdas.github.io/angular-ws-steps/)
 
+- Screenshots:
+
+![Screenshot 1](https://user-images.githubusercontent.com/3761994/31696207-7efddffa-b38e-11e7-90a0-921ac3defebb.png)
+![Screenshot 2](https://user-images.githubusercontent.com/3761994/31696212-841d8756-b38e-11e7-940a-baf889fe3768.png)
+
 ### Install:
  - Bower
 ```
