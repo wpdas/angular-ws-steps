@@ -1,6 +1,6 @@
 {
   "name": "angular-ws-steps",
-  "description": "Steps directive for AngularJS.",
+  "description": "Steps directive for AngularJS. Works like the Tabs. Easy to use.",
   "main": [
     "src/steps.css",
     "src/steps.directive.js"
