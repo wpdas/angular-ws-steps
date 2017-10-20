@@ -22,6 +22,12 @@
     <!-- app -->
     <script src="https://wpdas.github.io/angular-ws-steps/app.js"></script>
     <script src="https://wpdas.github.io/angular-ws-steps/src/steps.directive.min.js"></script>
+
+    <style>
+      iframe {
+        min-height: 550px;
+      }
+    </style>
   </head>
 
   <body ng-app="app" ng-controller="AppCtrl as vm">
@@ -32,45 +38,20 @@
       <p>
         Use the mouse to click on the available steps. Note that each of them is referenced 
         to a step-content which is the information to be displayed in the context of the step.
-        Note: title and ref parameter from step directive are optional.
+        <br><br>Obs: title and ref parameter from step directive are optional.
       </p>
-      <steps step="2" enabled-step="4" id="myNavigation">
-        <step icon="build" ref="content1"></step>
-        <step icon="description" ref="content2"></step>
-        <step icon="compare_arrows" ref="content3"></step>
-        <step icon="dashboard" ref="content4"></step>
-        <step icon="dashboard" ref="content5"></step>
-        <step icon="dashboard" ref="content6"></step>
-      </steps>
-      <step-content id="content1">
-        <p style="width:100%; text-align:center;">* Content 1.</p>
-      </step-content>
-      <step-content id="content2">
-        <p style="width:100%; text-align:center;">* Content 2.</p>
-      </step-content>
-      <step-content id="content3">
-        <p style="width:100%; text-align:center;">* Content 3.</p>
-      </step-content>
-      <step-content id="content4">
-        <p style="width:100%; text-align:center;">* Content 4.</p>
-      </step-content>
-      <step-content id="content5">
-        <p style="width:100%; text-align:center;">* Content 5.</p>
-      </step-content>
-      <step-content id="content6">
-        <p style="width:100%; text-align:center;">* Content 6.</p>
-      </step-content>
+      <script async src="//jsfiddle.net/wpdas/zw3L75zy/embed/"></script>
 
-      <h3>Example 2 - Controlling the component through StepAPI</h3>
+      <h3>Example 2 - Controlling the component using StepsAPI</h3>
       <p>
-          Component can be controlled using an instance of the StepAPI.init () object. 
+          Component can be controlled using an instance of the StepsAPI.init () object. 
           When the API attempts to access a step that is not yet enabled, an error is 
           returned. Open the Console to view the errors. <br><br>
 
           You can also define any attribute in your step element and get it across the 
           instance.getStepAttributes(currentStep). See an example on line 19 from file app.js: 
           <a class="md-button md-raised md-primary" href="https://github.com/Wpdas/angular-ws-steps/blob/master/app.js" target="_blank">app.js file</a> 
-          getting a attribute called "my-attribute" from file index.html on line 77 
+          getting a attribute called "my-attribute" from file index.html on line 58 
           <a class="md-button md-raised md-primary" href="https://github.com/Wpdas/angular-ws-steps/blob/master/index.html" target="_blank">index.html file</a>.
       </p>
       <steps step="2" enabled-step="4" id="myNavigation2">
@@ -85,16 +66,9 @@
       <h3>Example 3 - Settings steps colors</h3>
       <p>
           Setting initial colors for the steps using the optional parameter "colors". 
-          Caution, in this mode, you only can use HEX colors type. If you want to use rgb, rgba or similar, use StepAPI.init() instance.
+          Caution, in this mode, you only can use HEX colors type. If you want to use rgb, rgba or similar, use StepsAPI.init() instance.
       </p>
-      <steps step="2" enabled-step="4" id="myNavigation3" colors="#ff0000, #765fff, #0000ff">
-        <step icon="build" title="Content 1"></step>
-        <step icon="description" title="Content 2"></step>
-        <step icon="compare_arrows" title="Content 3"></step>
-        <step icon="dashboard" title="Content 4"></step>
-        <step icon="dashboard" title="Content 5"></step>
-        <step icon="dashboard" title="Content 6"></step>
-      </steps>
+      <script async src="//jsfiddle.net/wpdas/nan8ptLv/embed/"></script>
   
       <h4>Example 4 - Changing the step using the Application Controller</h4>
       <p>You can change the value of the step parameter using the Application Controller.</p>
