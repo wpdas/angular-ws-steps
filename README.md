@@ -104,7 +104,7 @@ angular.module('app', ['wsSteps'])
 
 ``` html
 <div ng-controller="AppCtrl as vm">
-  <steps step="{vm.currentStep}" enabled-step="{vm.currentEnabledStep}" id="idName">
+  <steps step="{{vm.currentStep}}" enabled-step="{{vm.currentEnabledStep}}" id="idName">
     ...
   </steps>
 </div>
@@ -130,6 +130,8 @@ angular.module('app', ['wsSteps'])
     myNav.setEnabledColor('#ff0000'); //Sets enabled color.
     myNav.setDisabledColor('rgba(180, 76, 93, 0.70)'); //Sets disabled color.
     myNav.setEnabledIconColor('#0000ff'); //Sets enabled icon color.
+    myNav.getStepAttributes(myNav.getStep()); //Return all attributes of the requested Step (current)
+    myNav.getStepAttributes(myNav.getStep()).myParameter; //Return "my-parameter" from current Step (html example: <step ... my-parameter="value"></step>)
     myNav.update() //Updates the step and enabled-step based on current value setted on HTML tag.
   });
 
@@ -147,6 +149,12 @@ angular.module('app', ['wsSteps'])
   myNav.onStepChangeNotAllowed(function(err) {
     console.error(err);
   });
+
+  //When AngularJS destroys myNav Controller (when it exits outside the Screen Context)
+  myNav.onDestroy(function() {
+    console.log('myNav was destroyed');
+    myNav = null;
+  })
 });
 ```
 
@@ -167,4 +175,13 @@ angular.module('app', ['wsSteps'])
 <script src="/bower_components/angular-material/angular-material.js"></script>
 ```
 
+## Change Logs
+#### Version 1.1.0 - 2017-10-19
+- New API access method: getStepAttributes(step);
+- New Event: onDestroy(callback);
+- Remove events automatically when the Step controller is destroyed.
+
+See examples from API use in the above lines.
+
+## License
 License MIT.

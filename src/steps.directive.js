@@ -67,6 +67,14 @@
         }
       };
 
+      this.getStepAttributes = function(step) {
+        if(stepsNavigation && isReady) {
+          return stepsNavigation.scope().vm.getStepAttributes(step);
+        } else {
+          printNoReady();
+        }
+      };
+
       this.getTotalSteps = function() {
         if(stepsNavigation && isReady) {
           return stepsNavigation.scope().vm.getTotalSteps();
@@ -123,6 +131,14 @@
           if(callback) callback();
         });
         api.addEvent(onReadyStepEvent);
+      };
+
+      this.onDestroy = function(callback) {
+        if(stepsNavigation && isReady) {
+          stepsNavigation.scope().vm.onDestroyCallback = callback;
+        } else {
+          printNoReady();
+        }
       };
 
       this.update = function(){
@@ -196,6 +212,17 @@
         if(indexEventOnList !== -1){
           eventsList.splice(indexEventOnList, 1);
         }
+      },
+      removeAllEvents: function(elementID) {
+        //Remove events an registers from element
+        delete createdElementId[elementID];
+        delete createdObjectsId[elementID];
+        var eventsListCopy = eventsList;
+        eventsListCopy.forEach(function(event){
+          if (event.elementID === elementID) {
+            eventsList.splice(eventsList.indexOf(event), 1);
+          }
+        });
       },
       dispatchEvent: function(elementID, typeEvent, params){
         var cloneEventsList
@@ -350,11 +377,13 @@
     };
 
     function hideAllContents(exception){
-      vm.stepsChildList.forEach(function(content){
-        if(content !== exception){
-          document.getElementById(content).classList.add('ws-steps-content-hidden');
-        } else {
-          document.getElementById(content).classList.remove('ws-steps-content-hidden');
+      vm.stepsChildList.forEach(function(content) {
+        if(content.reference !== null) {
+          if (content.reference !== exception) {
+            document.getElementById(content.reference).classList.add('ws-steps-content-hidden');
+          } else {
+            document.getElementById(content.reference).classList.remove('ws-steps-content-hidden');
+          }
         }
       });
     }
@@ -398,6 +427,20 @@
       vm.enabledStep = value;
     };
 
+    vm.getStepAttributes = function(step) {
+      var attributes = null;
+      if (step === 0) step = 1;
+      if(vm.stepsChildList[(step - 1)]) attributes = vm.stepsChildList[(step - 1)].attrs;
+      return attributes;
+    };
+
+    vm.onDestroyCallback = null;
+
+    $scope.$on('$destroy', function() {
+      StepsAPI.removeAllEvents($attrs.id)
+      if(vm.onDestroyCallback) vm.onDestroyCallback();
+    });
+
     //Directive Step Access
     vm.stepsChildList = [];
 
@@ -411,7 +454,7 @@
         if(contentIndex < 0){
           hideAllContents();
         } else {
-          hideAllContents(vm.stepsChildList[contentIndex]);
+          if(vm.stepsChildList[contentIndex]) hideAllContents(vm.stepsChildList[contentIndex].reference);
         }
 
         StepsAPI.dispatchEvent($attrs.id, StepsAPI.events.typeEvent.STEP_CHANGE);
@@ -465,10 +508,17 @@
     vm.buttonMode = false;
     vm.isComplete = false;
 
-    if($attrs.ref){
+    //Provides Attributes
+    var scopeAttrs = {
+      reference: null,
+      attrs: $attrs
+    };
+
+    if ($attrs.ref) {
       document.getElementById($attrs.ref).classList.add('ws-steps-content-hidden');
-      $scope.$parent.$parent.vm.stepsChildList.push($attrs.ref);
+      scopeAttrs.reference = $attrs.ref;
     }
+    $scope.$parent.$parent.vm.stepsChildList.push(scopeAttrs);
 
     var stepsNavigationScope = $scope.$parent.$parent.vm;
 

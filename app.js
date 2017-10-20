@@ -11,10 +11,12 @@ angular.module('app', [
     console.log('Element:', myNavigation1.getElement());
     console.log('Element ID:', myNavigation1.getElementId());
     console.log('Total Steps:', myNavigation1.getTotalSteps());
-    myNavigation1.setStep(0);
+    myNavigation1.setStep(1);
     console.log('Current Step:', myNavigation1.getStep());
     myNavigation1.setEnabledStep(5);
     console.log('Enabled Steps:', myNavigation1.getEnabledStep());
+    console.log('Current Step Attributes:', myNavigation1.getStepAttributes(myNavigation1.getStep()));
+    console.log('Get attribute "my-attribute" from current Step (Step 1):', myNavigation1.getStepAttributes(myNavigation1.getStep()).myAttribute);
 
     
     var countStep = 1;

@@ -1,11 +1,11 @@
 {
   "name": "angular-ws-steps",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Steps directive for AngularJS. Works like the Tabs. Easy to use.",
   "scripts": {
     "start": "http-server ./ -p 3000 -c-1"
   },
-  "author": "",
+  "author": "Wenderson Pires da Silva <wpdas@yahoo.com.br>",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.18.13",
