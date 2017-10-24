@@ -38,17 +38,15 @@
       this.getElement = function() {
         if(stepsNavigation && isReady) {
           return stepsNavigation;
-        } else {
-          printNoReady();
         }
+        printNoReady();
       };
 
       this.getElementId = function() {
         if(stepsNavigation && isReady) {
           return stepsNavigation.scope().vm.getElementId();
-        } else {
-          printNoReady();
         }
+        printNoReady();
       }
 
       this.setStep = function(step) {
@@ -62,25 +60,29 @@
       this.getStep = function(){
         if(stepsNavigation && isReady) {
           return parseInt(stepsNavigation.scope().vm.step);
-        } else {
-          printNoReady();
         }
+        printNoReady();
       };
 
       this.getStepAttributes = function(step) {
         if(stepsNavigation && isReady) {
           return stepsNavigation.scope().vm.getStepAttributes(step);
-        } else {
-          printNoReady();
         }
+        printNoReady();
       };
+
+      this.getStepAcrossObject = function(step) {
+        if(stepsNavigation && isReady) {
+          return stepsNavigation.scope().vm.getStepAcrossObject(step);
+        }
+        printNoReady();
+      }
 
       this.getTotalSteps = function() {
         if(stepsNavigation && isReady) {
           return stepsNavigation.scope().vm.getTotalSteps();
-        } else {
-          printNoReady();
         }
+        printNoReady();
       };
 
       this.setEnabledStep = function(value) {
@@ -94,9 +96,8 @@
       this.getEnabledStep = function() {
         if(stepsNavigation && isReady) {
           return parseInt(stepsNavigation.scope().vm.enabledStep);
-        } else {
-          printNoReady();
         }
+        printNoReady();
       };
 
       this.setEnabledColor = function(color) {
@@ -434,6 +435,13 @@
       return attributes;
     };
 
+    vm.getStepAcrossObject = function(step) {
+      var acrossObject = null;
+      if(step === 0) step = 1;
+      if(vm.stepsChildList[(step - 1)]) acrossObject = vm.stepsChildList[(step - 1)].instance.across;
+      return acrossObject;
+    };
+
     vm.onDestroyCallback = null;
 
     $scope.$on('$destroy', function() {
@@ -489,14 +497,16 @@
       restrict: 'E',
       scope: {
         icon: '@',
-        title: '@'
+        title: '@',
+        across: '='
       },
       controller: StepController,
+      bindToController: true,
       controllerAs: 'vm',
       template: '<div ng-class="{\'button-mode\': vm.buttonMode, \'complete\': vm.isComplete, \'incomplete\': !vm.isComplete}" class="step" ng-click="vm.showContent()">'+
                 '<div class="step-line-enabled"></div>'+
-                '<i class="step-icon material-icons md-18">{{icon}}</i>'+
-                '<span class="step-title">{{title}}</span>'+
+                '<i class="step-icon material-icons md-18">{{vm.icon}}</i>'+
+                '<span class="step-title">{{vm.title}}</span>'+
                 '</div>'
     }
   };
@@ -508,9 +518,10 @@
     vm.buttonMode = false;
     vm.isComplete = false;
 
-    //Provides Attributes
+    //Provides Attributes and Across Object
     var scopeAttrs = {
       reference: null,
+      instance: vm,
       attrs: $attrs
     };
 

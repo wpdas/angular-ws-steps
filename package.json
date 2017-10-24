@@ -1,6 +1,6 @@
 {
   "name": "angular-ws-steps",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Steps directive for AngularJS. Works like the Tabs. Easy to use.",
   "scripts": {
     "start": "http-server ./ -p 3000 -c-1"

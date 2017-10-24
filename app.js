@@ -27,7 +27,7 @@ angular.module('app', [
     }, 1000);
   });
 
-  myNavigation1.onStepChange(function(){
+  myNavigation1.onStepChange(function() {
     console.log('Step Changes');
   });
 

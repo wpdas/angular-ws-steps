@@ -39,7 +39,7 @@ If the requested step is larger than the enabled step, it will not be displayed.
 
 When the enabled step is changed, if the current step is larger than it, the first step will be automatically selected.
 
-Note: title and ref parameter from step directive are optional.
+Note: title, ref and across parameter from step directive are optional.
 
 ``` html
 <steps step="3" enabled-step="3" id="idName">
@@ -100,6 +100,30 @@ angular.module('app', ['wsSteps'])
 });
 ```
 
+- You can pass an Object to the Step using "across" parameter and later, rescues it using ```
+myNav.getStepAcrossObject(myNav.getStep());``` Something like:
+
+``` html
+<steps step="2" enabled-step="2" id="idName">
+  <step icon="icon_name" title="title" ref="idRef1" across="vm.myFunction"></step>
+  <step icon="icon_name" title="title" ref="idRef2" across="vm.myObject"></step>
+</steps>
+
+<script>
+angular.module('app', ['wsSteps'])
+.controller('AppCtrl as vm', function(StepsAPI) {
+  var vm = this;
+  vm.myFunction = function() {...};
+  vm.myObject = {name: 'User Name'};
+  
+  var myNav = new StepsAPI.init('idName');
+  myNav.onStepChange(function() {
+    console.log(myNav.getStepAcrossObject(myNav.getStep())); //Return across vm.myFunction / vm.myObject
+  };
+});
+</script>
+```
+
 - To use the simple bind of AngularJS simply set the same in the desired parameter:
 
 ``` html
@@ -132,6 +156,7 @@ angular.module('app', ['wsSteps'])
     myNav.setEnabledIconColor('#0000ff'); //Sets enabled icon color.
     myNav.getStepAttributes(myNav.getStep()); //Return all attributes of the requested Step (current)
     myNav.getStepAttributes(myNav.getStep()).myParameter; //Return "my-parameter" from current Step (html example: <step ... my-parameter="value"></step>)
+    myNav.getStepAcrossObject(myNav.getStep()); //Will return any object passed on "across" parameter on Step (Object, Function...)
     myNav.update() //Updates the step and enabled-step based on current value setted on HTML tag.
   });
 
