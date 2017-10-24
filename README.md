@@ -201,6 +201,9 @@ angular.module('app', ['wsSteps'])
 ```
 
 ## Change Logs
+#### Version 1.1.1 - 2017-10-24
+- New API access method: getStepAcrossObject(step);
+
 #### Version 1.1.0 - 2017-10-19
 - New API access method: getStepAttributes(step);
 - New Event: onDestroy(callback);
